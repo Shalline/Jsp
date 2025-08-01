@@ -102,6 +102,22 @@ public class CustomerDAO extends DBHelper {
 	}
 	
 	public void updateCustomer(CustomerDTO dto) {
+		try {
+	        conn = getConnection(DBCP);
+	        String sql = "UPDATE CUSTOMER SET NAME=?, HP=?, ADDRESS=? WHERE CID=?";
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, dto.getName());
+	        psmt.setString(2, dto.getHp());
+	        psmt.setString(3, dto.getAddress());
+	        psmt.setString(4, dto.getCid());
+
+	        psmt.executeUpdate(); // 영향 받은 행 수
+	        logger.info("updateCustomer 영향 받은 행 수: " );
+
+	        closeAll();
+	    } catch (Exception e) {
+	        logger.error(e.getMessage());
+	    }
 		
 	}
 	
