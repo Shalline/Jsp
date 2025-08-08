@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,18 +18,22 @@
 				<th>이름</th>
 				<th>휴대폰</th>
 				<th>주소</th>
+				<th>등록일</th>
 				<th>관리</th>
 			</tr>			
+			<c:forEach var="customer" items="${dtoList}">
 			<tr>
-				<td>21212</td>
-				<td>213131</td>
-				<td>213131</td>
-				<td>213131</td>
+				<td>${customer.cid}</td>
+				<td>${customer.name}</td>
+				<td>${customer.hp}</td>
+				<td>${customer.address}</td>
+				<td>${customer.rdate}</td>
 				<td>					
 					<a href="">수정</a>					
 					<a href="">삭제</a>
 				</td>
 			</tr>
+			</c:forEach>
 		</table>		
 	</body>
 </html>

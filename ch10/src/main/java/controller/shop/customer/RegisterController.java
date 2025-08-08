@@ -57,3 +57,15 @@ public class RegisterController extends HttpServlet {
 		resp.sendRedirect("/ch10/shop/customer/list.do");	
 	}	
 }
+
+
+
+
+
+
+
+
+
+
+
+

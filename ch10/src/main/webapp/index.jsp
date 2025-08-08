@@ -6,7 +6,7 @@
 		<title>index</title>
 		<!-- 
 			날짜 : 2025/08/01
-			이름 : 김수진
+			이름 : 김철학
 			내용 : 프로젝트 로그와 배포 실습하기			
 			
 			로그
@@ -47,5 +47,23 @@
 		<a href="/ch10/library/member/list.do">Member CRUD</a>
 		<a href="/ch10/library/book/list.do">Book CRUD</a>
 		
+		<h4>User</h4>
+		<a href="/ch10/user1/list.do">user1 CRUD</a><br/>
+		<a href="/ch10/user2/list.do">user2 CRUD</a><br/>
+		<a href="/ch10/user3/list.do">user3 CRUD</a><br/>
+		<a href="/ch10/user4/list.do">user4 CRUD</a><br/>
+		<a href="/ch10/user5/list.do">user5 CRUD</a><br/>
+		
+		
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+

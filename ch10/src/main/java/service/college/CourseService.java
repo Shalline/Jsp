@@ -1,9 +1,5 @@
 package service.college;
 
-public enum CourseService {
+public class CourseService {
 
-	INSTANCE;
-	
-	
-	
 }
