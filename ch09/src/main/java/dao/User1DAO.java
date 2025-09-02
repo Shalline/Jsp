@@ -25,10 +25,13 @@ public class User1DAO {
 	private User1DAO() {}
 	
 	// 기본 CRUD 메서드
-	public void insertUser1(User1DTO dto) {		
+	public int insertUser1(User1DTO dto) {		
+		
+		int rowCount = 0;
+		
 		try {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
-			DataSource ds = (DataSource) ctx.lookup("jdbc/jinjinlove");
+			DataSource ds = (DataSource) ctx.lookup("jdbc/chhak0503");
 			
 			Connection conn = ds.getConnection();
 			
@@ -39,13 +42,15 @@ public class User1DAO {
 			psmt.setString(3, dto.getHp());
 			psmt.setInt(4, dto.getAge());
 			
-			psmt.executeUpdate();
+			// INSERT 성공하면 1, 실패하면 0
+			rowCount = psmt.executeUpdate();
 			
 			psmt.close();
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();			
 		}
+		return rowCount;
 	}
 	
 	public User1DTO selectUser1(String user_id) {
@@ -54,7 +59,7 @@ public class User1DAO {
 		
 		try {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
-			DataSource ds = (DataSource) ctx.lookup("jdbc/jinjinlove");
+			DataSource ds = (DataSource) ctx.lookup("jdbc/chhak0503");
 			
 			Connection conn = ds.getConnection();
 			
@@ -88,7 +93,7 @@ public class User1DAO {
 		
 		try {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
-			DataSource ds = (DataSource) ctx.lookup("jdbc/jinjinlove");
+			DataSource ds = (DataSource) ctx.lookup("jdbc/chhak0503");
 			
 			Connection conn = ds.getConnection();
 						
@@ -117,11 +122,13 @@ public class User1DAO {
 		return dtoList;
 	}
 	
-	public void updateUser1(User1DTO dto) {
+	public int updateUser1(User1DTO dto) {
+		
+		int rowCount = 0;
 		
 		try {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
-			DataSource ds = (DataSource) ctx.lookup("jdbc/jinjinlove");
+			DataSource ds = (DataSource) ctx.lookup("jdbc/chhak0503");
 			
 			Connection conn = ds.getConnection();
 						
@@ -132,20 +139,23 @@ public class User1DAO {
 			psmt.setInt(3, dto.getAge());
 			psmt.setString(4, dto.getUser_id());
 			
-			psmt.executeUpdate();
+			rowCount = psmt.executeUpdate();
 			
 			psmt.close();
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();			
 		}	
-		
+		return rowCount;
 	}
 	
-	public void deleteUser1(String user_id) {
+	public int deleteUser1(String user_id) {
+		
+		int rowCount = 0;
+		
 		try {
 			Context ctx = (Context) new InitialContext().lookup("java:comp/env");
-			DataSource ds = (DataSource) ctx.lookup("jdbc/jinjinlove");
+			DataSource ds = (DataSource) ctx.lookup("jdbc/chhak0503");
 			
 			Connection conn = ds.getConnection();
 						
@@ -153,12 +163,14 @@ public class User1DAO {
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			psmt.setString(1, user_id);
 			
-			psmt.executeUpdate();
+			rowCount = psmt.executeUpdate();
 			
 			psmt.close();
 			conn.close();
 		}catch (Exception e) {
 			e.printStackTrace();			
 		}	
+		
+		return rowCount;
 	}
 }

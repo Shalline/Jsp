@@ -24,6 +24,9 @@
 		<a href="/ch09/welcome.do">welcome</a>
 		<a href="/ch09/greeting.do">greeting</a>
 		
+		<h4>JSUSER1</h4>
+		<a href="/ch09/js/user1/list.do">JSuser1 목록</a>
+		
 		<h4>USER1 CRUD</h4>		
 		<a href="/ch09/user1/list.do">user1 목록</a>
 		
